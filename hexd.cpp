@@ -6,6 +6,7 @@
 //				Usage: hexdump <filename>
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <cstdint>
 #include <fstream>
@@ -33,25 +34,17 @@ int main(int argc, char* argv[]) {
 	// Binary value read from the file
 	uint8_t value;
 
-	// Buffer to store the hex value of a byte
-	// I'm not sure why we need 3 elements in the buffer
-	char valueBuffer[3];
-
 	// Counter for the number of bytes read. Used to format output
 	size_t byteCount = 0;
-
-	// Buffer to store the count value in hex
-	char countBuffer[8];
 
 	while (inStream.read(reinterpret_cast<std::fstream::char_type*>(&value), sizeof value)) {
 
 		if (byteCount % 16 == 0) {
-			std::sprintf(countBuffer, "%07X", byteCount);
 			if (byteCount == 0) {
-				std::cout << countBuffer;
+				std::cout << std::hex << std::setw(7) << std::setfill('0') << byteCount;
 			}
 			else {
-				std::cout << "\n" << countBuffer;
+				std::cout << "\n" << std::hex << std::setw(7) << std::setfill('0') << byteCount;
 			}
 		}
 
@@ -59,8 +52,7 @@ int main(int argc, char* argv[]) {
 			std::cout << " ";
 		}
 
-		std::sprintf(valueBuffer, "%02X", value);
-		std::cout << valueBuffer;
+		std::cout << std::hex << std::setw(2) << std::setfill('0') << (int)value;
 
 		byteCount++;
 
