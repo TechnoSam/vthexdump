@@ -26,23 +26,43 @@ int main(int argc, char* argv[]) {
 	inStream.open(FILENAME, std::ios::binary);
 
 	if (!inStream.is_open()) {
-		std::cout << "Could not open \"" << FILENAME << "\". It does not exist or contains errors.";
+		std::cout << "Could not open \"" << FILENAME << "\". It does not exist or contains errors.\n";
 		return EXIT_FAILURE;
 	}
 
-	// I'm not sure why we need 3 elements in the buffer
-	char buffer[3];
+	// Binary value read from the file
 	uint8_t value;
+
+	// Buffer to store the hex value of a byte
+	// I'm not sure why we need 3 elements in the buffer
+	char valueBuffer[3];
+
+	// Counter for the number of bytes read. Used to format output
+	size_t byteCount = 0;
+
+	// Buffer to store the count value in hex
+	char countBuffer[8];
 
 	while (inStream.read(reinterpret_cast<std::fstream::char_type*>(&value), sizeof value)) {
 
-		if (value > 31 && value < 127) {
-			std::sprintf(buffer, "%02X", value);
-			std::cout << buffer << "\n";
+		if (byteCount % 16 == 0) {
+			std::sprintf(countBuffer, "%07X", byteCount);
+			if (byteCount == 0) {
+				std::cout << countBuffer;
+			}
+			else {
+				std::cout << "\n" << countBuffer;
+			}
 		}
-		else {
-			std::cout << ".\n";
+
+		if (byteCount % 2 == 0) {
+			std::cout << " ";
 		}
+
+		std::sprintf(valueBuffer, "%02X", value);
+		std::cout << valueBuffer;
+
+		byteCount++;
 
 	}
 
