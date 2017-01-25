@@ -104,7 +104,7 @@ void printLine(const size_t address, const unsigned int bytesPerLine, std::vecto
 	}
 
 	// Print the ascii with a newline
-	std::cout << " ";
+	std::cout << "  ";
 	for (unsigned int i = 0; i < values.size(); i++) {
 		if (values.at(i) > 31 && values.at(i) < 127) {
 			std::cout << (char)values.at(i);

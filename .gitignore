@@ -280,3 +280,6 @@ __pycache__/
 
 #Vagrant
 .vagrant/
+
+#Build files
+a.out
