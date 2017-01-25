@@ -273,3 +273,10 @@ __pycache__/
 # Cake - Uncomment if you are using it
 # tools/**
 # !tools/packages.config
+
+#############################
+# End of Visual Studio
+#############################
+
+#Vagrant
+.vagrant/

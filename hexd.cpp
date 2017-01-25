@@ -21,12 +21,12 @@
 	@param bytesPerLine The number of expected bytes per line; used to fill incomplete final lines
 	@param values The vector containing the bytes to print. Will print all bytes in the vector, irrespective of size.
 */
-void printLine(const size_t address, const int bytesPerLine, std::vector<uint8_t>& values);
+void printLine(const size_t address, const unsigned int bytesPerLine, std::vector<uint8_t>& values);
 
 int main(int argc, char* argv[]) {
 
 	// Constants
-	const int BYTES_PER_LINE = 16;
+	const unsigned int BYTES_PER_LINE = 16;
 
 	// If an incorrect number of arguments is given, we can immediately terminate.
 	if (argc != 2) {
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]) {
 	return EXIT_SUCCESS;
 }
 
-void printLine(const size_t address, const int bytesPerLine, std::vector<uint8_t>& values) {
+void printLine(const size_t address, const unsigned int bytesPerLine, std::vector<uint8_t>& values) {
 
 	// Print the address
 	std::cout << std::hex << std::setw(7) << std::setfill('0') << address << ":";
