@@ -130,14 +130,6 @@ shutil.copytree(ORIGIN_DIR, SOURCE_DIR)
 # change to the temp source directory
 os.chdir(SOURCE_DIR)
 
-# repair possibly modified .hex files
-subprocess.call(["xxd", "./tests/raw0.bin", "./tests/raw0.hex"])
-subprocess.call(["xxd", "./tests/raw1.bin", "./tests/raw1.hex"])
-subprocess.call(["xxd", "./tests/raw2.bin", "./tests/raw2.hex"])
-subprocess.call(["xxd", "./tests/raw3.bin", "./tests/raw3.hex"])
-subprocess.call(["xxd", "./tests/raw4.bin", "./tests/raw4.hex"])
-subprocess.call(["xxd", "./tests/raw5.bin", "./tests/raw5.hex"])
-
 # start the grading process
 logging.info('\nBegin Grading at %s', str(datetime.now()))
 grade = 0
