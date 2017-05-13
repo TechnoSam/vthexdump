@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Applied Software Design">
+  <meta name="author" content="C.L. Wyatt">
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="specs_files/bootstrap.css">
+  
+  <!-- Video Player -->
+  <!--
+  <link href="//vjs.zencdn.net/4.8/video-js.css" rel="stylesheet">
+  <script src="//vjs.zencdn.net/4.8/video.js"></script>
+  -->
+  
+  <!-- Customization -->
+  <style>
+    body {
+  	padding-top: 80px;
+    }
+    h1{
+    font-size: 1.2em;
+    border-bottom: solid 1pt #7B9148;
+    }
+    h2{
+    font-size: 1.2em;
+    }
+    a.title{
+    font-size: 1.5em;
+    color: #fcfcfc;
+    }
+    .navbar-default {
+    background-color: #660000;
+    border-color: #e7e7e7;
+    }
+    tr.even {
+    background-color: #E8E8E8;
+    }
+    tr.odd {
+    background-color: #FFFFFF;
+    } 
+    }
+  @media (max-width: 979px) {
+    body {
+  	padding-top: 0px;
+    }
+  }
+  </style>
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  	<!--[if lt IE 9]>
+  	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  	  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	  <div class="container">
+		<div class="navbar-header">
+			  <div class="container">
+			  <a class="title" href="https://filebox.ece.vt.edu/%7EECE3574/index.html">ECE 3574 Applied Software Design</a>
+			  </div>
+		</div>
+		<div class="navbar-collapse collapse">
+		  <ul class="nav navbar-nav">
+			<li><a href="https://filebox.ece.vt.edu/%7EECE3574/index.html" style="color: #b3b3b3">Syllabus</a></li>
+			<li><a href="https://filebox.ece.vt.edu/%7EECE3574/index.html#schedule-tentative" style="color: #b3b3b3">Schedule</a></li>
+
+		  </ul>
+		</div><!--/.nav-collapse -->
+	  </div>
+	</div>
+
+<div class="container">
+<h1 id="project-0-hexdump">Project 0: hexdump</h1>
+<table>
+<colgroup>
+<col style="width: 38%">
+<col style="width: 27%">
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;">
+Assigned:
+</td>
+<td style="text-align: left;">
+1/17
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+Final Version Due:
+</td>
+<td style="text-align: left;">
+1/27 by 11:59 pm
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note: there is only one due date for Project 0.</strong></p>
+<p><a href="https://classroom.github.com/assignment-invitations/146591f20af0cbfadfafebd9363da62b">GitHub Invitation Link</a></p>
+<p>The goal of this project is to get used to the course workflow and be
+ sure you understand how to submit code for grading. You will write a 
+simple command line application called hexd that will read a file and 
+write its contents in a special format as described below.</p>
+<p>This assignment requires only basic computer organization knowledge 
+and very little C++ experience beyond basic functions and IO operations.
+ If you struggle with this assignment you are woefully ill-prepared for 
+this course. This means you should devote additional time to it and seek
+ advice from the TAs and myself, or as a last resort drop.</p>
+<h2 id="description">Description</h2>
+<p>Recall that all files are just sequences of bytes. To view a file you
+ have to assume some form of format to the file. For example a 
+plain-text, ASCII encoded file is one where the bytes are interpreted as
+ representing ASCII characters, while an image file is one where the 
+bytes represent the color and arrangement of pixels.</p>
+<p>A hex viewer is a program that shows the raw byte sequence of a file 
+formatted as hexadecimal (base 16) numbers. Each byte of the file is 
+represented a a two-digit hexadecimal number. The sequence is organized 
+into rows representing 16 bytes at a time. The first column is a 7-digit
+ zero-based index, written in hex, of the first byte on that line, 
+followed by a <code>:</code> character. The next column is the next two 
+bytes grouped together written in hex. These columns continue seven more
+ times until a total of 16 bytes (8 columns of two bytes each) are 
+shown. The last column shows the ASCII representation of the byte 
+sequence for that row, printing a <code>.</code> character for 
+non-printable bytes (those without an ASCII character representation). 
+It is separated by the previous column by two spaces.</p>
+<p>Since our program will view the file by simply printing it in the 
+above format to standard output, i.e. dumping it to the screen, we will 
+call our program <code>hexd</code>, short for "hex dump".</p>
+<p>Lets look at an example. Suppose you write the following program:</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="ot">#include &lt;fstream&gt;</span>
+
+<span class="dt">int</span> main(){
+
+  std::ofstream outs(<span class="st">"temp.txt"</span>);
+  outs &lt;&lt; <span class="st">"This is a line of text.</span><span class="ch">\n</span><span class="st">This is another.</span><span class="ch">\n</span><span class="st">"</span>;
+  outs.close();
+  
+  <span class="kw">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>When your run it (assuming it has write permissions), it would produce a plain-text, ASCII file <code>temp.txt</code> with the contents (as it would look in an editor):</p>
+<pre><code>This is a line of text.
+This is another.
+</code></pre>
+<p>On a UNIX system, the hex dump of that file would be:</p>
+<pre><code>0000000: 5468 6973 2069 7320 6120 6c69 6e65 206f  This is a line o
+0000010: 6620 7465 7874 2e0a 5468 6973 2069 7320  f text..This is 
+0000020: 616e 6f74 6865 722e 0a                   another..</code></pre>
+<p>From this we can see the first byte of the file is hex 54 (binary 
+01010100, decimal 84, ASCII letter T). The byte at index 16 (7 digit hex
+ 0000010) is hex 66 (binary 01100110, decimal 102, ASCII letter f). The 
+byte at index 23 is hex 0a (binary 00001010, decimal 10, ASCII Line 
+Feed). Etc. Notice that if a row does not have 16 entries, the rest are 
+padded with spaces. Study the dump to be sure you understand the format.</p>
+<p>On a Windows system that same file (by all appearances in the editor) would have the hex dump</p>
+<pre><code>0000000: 5468 6973 2069 7320 6120 6c69 6e65 206f  This is a line o
+0000010: 6620 7465 7874 2e0d 0a54 6869 7320 6973  f text...This is
+0000020: 2061 6e6f 7468 6572 2e0d 0a               another...</code></pre>
+<p>Notice that the byte at index 23 is now hex 0d followed by hex 0a. 
+That is because text files on windows use two characters (ASCII Carriage
+ Return and Line Feed) to represent the end of a line.</p>
+<p>These are the kind of subtle differences that can be discovered using
+ a hex dump and why it is an invaluable tool when debugging low-level 
+issues and reverse engineering. Of course there are already tools you 
+can get that do this, but now you will have written your own!</p>
+<p>Some hints. Recall that to read a file byte-by-byte in C++ it should 
+be opened in binary mode. Reading and writing from/to a binary file is 
+different than when using text files. First, you have to open the file 
+in binary mode, e.g.</p>
+<pre><code>std::ifstream instream("input_binary.file", std::ios::binary);</code></pre>
+<p>To read a binary value you use the read method, which takes a pointer to a memory location as a <code>std::fstream::char_type *</code>
+ (a pointer to the type fstreams use to hold characters) and the number 
+of bytes to read. The pointer must be cast using a reinterpret cast. For
+ example to read an unsigned 32 bit integer one would do</p>
+<pre><code>uint32_t value;
+instream.read(reinterpret_cast&lt;std::fstream::char_type*&gt;(&amp;value), sizeof value);</code></pre>
+<p>The fixed-width integer types (int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t, etc.) are defined in the header <a href="http://en.cppreference.com/w/cpp/types/integer">cstdint</a>. You should always use them instead of the types <code>int</code>, <code>long</code>, etc. when you need to depend on the memory size of the type.</p>
+<h2 id="setup">Setup</h2>
+<p>Accept the GitHub invitation above and then clone the git repository 
+to your local machine. Implement your program in a source file named <code>hexd.cpp</code>.
+ You should use git to commit versions of your program source (only) as 
+you go along, demonstrating good incremental programming technique.</p>
+<h2 id="correctness">Correctness</h2>
+<p>The file to read is specified as command line argument (whatever the 
+user types on the command line after the executable). If you need a 
+primer on how to use command line arguments, <a href="#a-primer-on-command-line-arguments">see below</a>. The file should be printed in the hex format above (exactly) to standard output. So for example, assume that a file named <code>text</code>
+ with the contents above was in the current directory along with the 
+executable on a Windows system. Then this would be how the program would
+ be run to dump the file to hex (assume &gt; is the prompt):</p>
+<pre><code>&gt; .\hexd.exe text</code></pre>
+<p>which would print out to the terminal/console:</p>
+<pre><code>0000000: 5468 6973 2069 7320 6120 6c69 6e65 206f  This is a line o
+0000010: 6620 7465 7874 2e0d 0a54 6869 7320 6973  f text...This is
+0000020: 2061 6e6f 7468 6572 2e0d 0a               another...</code></pre>
+<p>If no file is specified, or the specified file cannot be opened, the 
+program should print an appropriate error message to standard error and 
+return <code>EXIT_FAILURE</code>. Otherwise it should return <code>EXIT_SUCCESS</code>.</p>
+<h2 id="testing">Testing</h2>
+<p>The initial git repository has a sub-directory called test which has 
+several examples of input files (ending in .bin) and corresponding 
+expected output (ending in .hex). You can test your code in the 
+reference grading environment by starting a VM (with the supplied 
+Vagrantfile as in meeting 3), compiling the program and ensuring it 
+writes the same output as in the .hex files when run on the .bin inputs.
+ When invoking the compiler be sure to use the flags "-std=c++11 -Wall 
+-Wextra`` to enable better static analysis. Here is an example 
+transcript of a correct invocation:</p>
+<pre><code>ubuntu@ubuntu-xenial:~$ g++ -std=c++11 -Wall -Wextra /vagrant/hexd.cpp 
+ubuntu@ubuntu-xenial:~$ </code></pre>
+<h2 id="submission">Submission</h2>
+<p>To submit your assignment:</p>
+<ol type="1">
+<li><p>Tag the git commit that you wish to be considered for grading as "final".</p>
+<pre><code>git tag final</code></pre></li>
+<li><p>Push this change to GitHub</p>
+<pre><code>git push origin final</code></pre></li>
+</ol>
+<p>Be sure you have committed all the changes you intend to. <strong>Failure to complete these steps by the due date will result in no credit being assigned.</strong></p>
+<h2 id="grading">Grading</h2>
+<p>There are 30 points allocated to this assignment.</p>
+<table>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 10%">
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;">
+Correctness
+</td>
+<td style="text-align: left;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+Code Quality
+</td>
+<td style="text-align: left;">
+6
+</td>
+</tr>
+</tbody>
+</table>
+<p>Correctness means that the program reads the filename from the 
+command line and write the output per the specification. Code quality 
+will be assessed in this assignment by ensuring your code compiles 
+cleanly, with no warnings, using the g++ flag <code>-Wall -Wextra</code> in the reference environment, as specified above. That is in the VM typing <code>g++ -std=c++11 -Wall -Wextra /vagrant/hexd.cpp</code> should produce no errors <strong>or warnings</strong>. You should also have made more than 2 commits to your repository before submission.</p>
+<p><strong>Grading Script</strong>: Since P0 does not have two due dates
+ we are going to give you the grading script we will use to evaluate 
+your submission. To use it:</p>
+<ol type="1">
+<li>Copy the file <code>grade.py</code> from <a href="https://filebox.ece.vt.edu/%7EECE3574/projects/00-hexdump/grade.zip">this zip file</a> to your repository (I have to distribute it as a zip to get around a server issue).</li>
+<li>In your Vagrantfile, add the string "cmake" at the end of line 4 (starts with apt-get)</li>
+<li>Start the VM and login.</li>
+<li>Change to your source directory (<code>cd /vagrant</code>)</li>
+<li>Type <code>python3 grade.py</code></li>
+</ol>
+<p>You should now have the files <code>build.log</code> and <code>feedback.log</code> added to your source directory. Do not commit these to your repository.</p>
+<h1 id="a-primer-on-command-line-arguments">A Primer on Command Line Arguments</h1>
+<p>Recall the primary ways to get user input into a program, standard input (<code>std::cin</code>)
+ and reading from files. Another very convenient one is to use command 
+line arguments. When your program is run, usually from another program 
+(the operating system or a shell program), it starts executing in the 
+function <code>main</code>. This is called the <em>entry</em> <em>point</em>.</p>
+<pre><code>int main()
+{
+    //code here
+    
+    return 0;
+}</code></pre>
+<p>There is another form of this entry point with two arguments. The first (traditionally named <code>argc</code>) is the number of string arguments to the program, the second (traditionally named <code>argv</code>) is an array of ``argc'' C-style strings (pointers to null-terminated memory) with the arguments themselves.</p>
+<pre><code>int main(int argc, char*argv[])
+{
+    //code here
+    
+    return 0;
+}</code></pre>
+<p>You can specify the command line arguments when you run the program 
+from a text shell (e.g. powershell or bash), from a graphical shell 
+(like when you click on an icon), or from a script.</p>
+<p>It is easy to convert the more C-style arguments to a more modern C++ style as follows</p>
+<pre><code>#include &lt;vector&gt;
+#include &lt;string&gt;
+
+int main(int argc, char*argv[])
+{
+    std::vector&lt;std::string&gt;  arguments;
+    for(int i = 0; i &lt; argc; ++i) arguments.push_back(argv[i]);
+    
+    // code can use arguments as a C++ vector of C++ strings 
+    
+    return 0;
+}</code></pre>
+<p>The most common use of command line arguments is to be able to run a 
+program easily with different inputs, often filenames to use. A common 
+followup question is why is this better than just prompting for input 
+with standard output and standard input (''std::cout'' followed by 
+''std::cin'')?</p>
+<p>Than answer is that such input is difficult to automate. Scripts are 
+one of the best ways to combine programs and often need to run 
+unattended. A prompt blocks the program, waiting on standard input, 
+usually requiring a user to be present and attending to the task. 
+Although standard input can be "piped" into a program, it is much easier
+ to use command line arguments. A script can also use the output of one 
+program as the command line argument to another, allowing one to mix and
+ match smaller programs into a single task. This is one of the core 
+philosophies in computing.</p>
+<p>A related question to the previous is why does main return an int 
+anyway? Well, when your program is run to completion it can indicate to 
+the running process if it succeeded or if an error occurred by returning
+ this int. Success is defined as zero, which is why most simple examples
+ returns that. The following are defined in the header ''cstdlib'': 
+''EXIT_SUCCESS'' and ''EXIT_FAILURE'', and can be used when returning 
+from main.</p>
+<p>Note you do not have to call return in main (this is a special case).
+ In such cases the compiler inserts a success return for you.</p>
+<footer class="footer">
+<hr>
+<p>Copyright © 2017 Christopher Wyatt.</p>
+</footer>
+</div> <!-- /container -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="specs_files/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="specs_files/bootstrap.js"></script>
+
+
+</body></html>
